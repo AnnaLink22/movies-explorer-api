@@ -46,6 +46,11 @@ app.use('/users', auth, userRouter);
 
 app.use('/movies', auth, movieRouter);
 
+app.use('*', (req, res, next) => {
+  res.status(404).send({ message: 'Ресурс не найден' });
+  next();
+});
+
 app.use(errorLogger);
 
 app.use(errors());
