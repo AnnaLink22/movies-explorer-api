@@ -16,6 +16,8 @@ const { PORT = 3000 } = process.env;
 
 const errorHandler = require('./middlewares/error-handler');
 
+const { NotFoundErr } = require('./errors');
+
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const {
@@ -46,9 +48,8 @@ app.use('/users', auth, userRouter);
 
 app.use('/movies', auth, movieRouter);
 
-app.use('*', (req, res, next) => {
-  res.status(404).send({ message: 'Ресурс не найден' });
-  next();
+app.use('*', auth, (req, res, next) => {
+  next(new NotFoundErr('Ресурс не найден'));
 });
 
 app.use(errorLogger);

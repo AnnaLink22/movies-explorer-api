@@ -52,12 +52,6 @@ module.exports.createUser = (req, res, next) => {
 
 module.exports.updateUser = (req, res, next) => {
   const { name, email } = req.body;
-  if (!name) {
-    throw new BadRequestErr('Поля "name" должны быть заполнены');
-  }
-  if (typeof name !== 'string') {
-    throw new BadRequestErr('Поля "name" должны быть строками');
-  }
   return User.findByIdAndUpdate(req.user._id, { name, email }, { new: true, runValidators: true })
     .then((user) => {
       if (user) {

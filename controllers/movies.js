@@ -23,7 +23,7 @@ module.exports.deleteMovieById = (req, res, next) => {
       if (movie.owner.toString() !== req.user._id) {
         throw new ForbiddenErr('Вы не можете удалять фильмы других пользователей');
       }
-      Movie.findByIdAndRemove(req.params.movieId)
+      return Movie.findByIdAndRemove(req.params.movieId)
         .then((deletedMovie) => res.send(deletedMovie));
     })
     .catch((err) => {
