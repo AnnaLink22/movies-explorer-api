@@ -24,7 +24,7 @@ const validateCreateMovieBody = celebrate({
     description: Joi.string().required().min(2),
     year: Joi.string().required().min(2).max(10),
     duration: Joi.number(),
-    movieId: Joi.string().hex().length(24),
+    movieId: Joi.number(),
     image: Joi.string().required().custom((value, helpers) => {
       if (validator.isURL(value)) {
         return value;
