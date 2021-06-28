@@ -23,8 +23,8 @@ const validateCreateMovieBody = celebrate({
     director: Joi.string().required().min(2).max(30),
     description: Joi.string().required().min(2),
     year: Joi.string().required().min(2).max(10),
-    duration: Joi.number(),
-    movieId: Joi.number(),
+    duration: Joi.number().required(),
+    movieId: Joi.number().required(),
     image: Joi.string().required().custom((value, helpers) => {
       if (validator.isURL(value)) {
         return value;
