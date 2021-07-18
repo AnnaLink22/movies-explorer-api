@@ -14,7 +14,7 @@ const { createUser, login } = require('./controllers/users');
 
 const auth = require('./middlewares/auth');
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3005 } = process.env;
 
 const errorHandler = require('./middlewares/error-handler');
 
