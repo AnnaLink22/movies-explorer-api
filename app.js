@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 
 const { errors } = require('celebrate');
 
+const cors = require('cors');
+
 const userRouter = require('./routes/users');
 
 const movieRouter = require('./routes/movies');
@@ -28,6 +30,11 @@ const {
 const app = express();
 
 app.use(express.json());
+
+app.use(cors({
+  origin: 'http://localhost:3000/',
+  credentials: true,
+}));
 
 app.use(express.urlencoded({ extended: true }));
 
