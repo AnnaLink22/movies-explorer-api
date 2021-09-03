@@ -47,20 +47,12 @@ const movieSchema = new mongoose.Schema({
       message: 'Поле "image" должно быть валидным url-адресом.',
     },
   },
-  trailer: {
+  trailerLink: {
     type: String,
     required: true,
     validate: {
       validator: (v) => validator.isURL(v),
       message: 'Поле "trailer" должно быть валидным url-адресом.',
-    },
-  },
-  thumbnail: {
-    type: String,
-    required: true,
-    validate: {
-      validator: (v) => validator.isURL(v),
-      message: 'Поле "thumbnail" должно быть валидным url-адресом.',
     },
   },
 });
