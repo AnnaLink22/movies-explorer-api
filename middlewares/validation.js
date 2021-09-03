@@ -31,17 +31,11 @@ const validateCreateMovieBody = celebrate({
       }
       return helpers.message('Поле "image" должно быть валидным url-адресом.');
     }),
-    trailer: Joi.string().required().custom((value, helpers) => {
+    trailerLink: Joi.string().required().custom((value, helpers) => {
       if (validator.isURL(value)) {
         return value;
       }
       return helpers.message('Поле "trailer" должно быть валидным url-адресом.');
-    }),
-    thumbnail: Joi.string().required().custom((value, helpers) => {
-      if (validator.isURL(value)) {
-        return value;
-      }
-      return helpers.message('Поле "thumbnail" должно быть валидным url-адресом.');
     }),
   }),
 });

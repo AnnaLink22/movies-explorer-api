@@ -39,12 +39,11 @@ module.exports.createMovie = (req, res, next) => {
     year,
     description,
     image,
-    trailer,
+    trailerLink,
     nameRU,
     nameEN,
-    thumbnail,
     movieId,
-  } = req.body;
+  } = req.body.movie;
   const owner = req.user._id;
 
   Movie.create({
@@ -54,10 +53,9 @@ module.exports.createMovie = (req, res, next) => {
     year,
     description,
     image,
-    trailer,
+    trailerLink,
     nameRU,
     nameEN,
-    thumbnail,
     movieId,
     owner,
   })
