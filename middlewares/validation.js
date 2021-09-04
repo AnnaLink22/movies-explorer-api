@@ -20,8 +20,8 @@ const validateCreateMovieBody = celebrate({
   body: Joi.object().keys({
     nameRU: Joi.string().required().min(2).max(100),
     nameEN: Joi.string().required().min(2).max(100),
-    country: Joi.string().required().min(2).max(30),
-    director: Joi.string().required().min(2).max(60),
+    country: Joi.string().required().min(2).max(100),
+    director: Joi.string().required().min(2).max(100),
     description: Joi.string().required().min(2),
     year: Joi.string().required().min(2).max(10),
     duration: Joi.number().required(),
