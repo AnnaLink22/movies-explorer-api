@@ -12,7 +12,7 @@ const validateCreateUserBody = celebrate({
 
 const validateDeleteMovieById = celebrate({
   params: Joi.object().keys({
-    id: Joi.number().required(),
+    movieId: Joi.string().alphanum().length(24),
   }),
 });
 
