@@ -12,7 +12,7 @@ const validateCreateUserBody = celebrate({
 
 const validateDeleteMovieById = celebrate({
   params: Joi.object().keys({
-    movieId: Joi.string().hex().length(24),
+    id: Joi.number().required(),
   }),
 });
 
@@ -25,7 +25,7 @@ const validateCreateMovieBody = celebrate({
     description: Joi.string().required().min(2),
     year: Joi.string().required().min(2).max(10),
     duration: Joi.number().required(),
-    movieId: Joi.number().required(),
+    id: Joi.number().required(),
     image: Joi.string().required().custom((value, helpers) => {
       if (validator.isURL(value)) {
         return value;
