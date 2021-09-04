@@ -31,10 +31,12 @@ const app = express();
 
 app.use(express.json());
 
-app.use(cors({
-  origin: 'https://skyblue.nomoredomains.icu',
-  credentials: true,
-}));
+app.use(cors());
+
+// {
+//   origin: 'https://skyblue.nomoredomains.icu',
+//   credentials: true,
+// }
 
 app.use(express.urlencoded({ extended: true }));
 
