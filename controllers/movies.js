@@ -59,7 +59,20 @@ module.exports.createMovie = (req, res, next) => {
     id,
     owner,
   })
-    .then((movie) => res.send(movie))
+    .then((movie) => res.send({
+      nameRU: movie.nameRU,
+      nameEN: movie.nameEN,
+      country: movie.country,
+      director: movie.director,
+      description: movie.description,
+      year: movie.year,
+      duration: movie.duration,
+      _id: movie._id,
+      image: movie.image.url,
+      createdAt: movie.createdAt,
+      owner: movie.owner,
+      trailerLink: movie.trailerLink,
+    }))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new BadRequestErr(`${Object.values(err.errors).map((error) => error.message).join(', ')}`));
